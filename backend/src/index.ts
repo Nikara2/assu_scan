@@ -2,10 +2,18 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import insuranceRoutes from './routes/insurance.routes';
 
 // Charger les variables d'environnement
 dotenv.config();
+
+// Créer le dossier uploads s'il n'existe pas
+const uploadsDir = path.join(__dirname, '../uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+  console.log('Dossier uploads créé');
+}
 
 const app = express();
 const PORT = process.env.PORT || 3001;

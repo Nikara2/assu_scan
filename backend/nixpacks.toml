@@ -1,3 +1,6 @@
+[phases.setup]
+nixPkgs = ["vips", "pkg-config"]
+
 [phases.build]
 cmds = ["npm run build"]
 

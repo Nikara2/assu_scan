@@ -1,0 +1,25 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model InsuranceCard {
+  id            String   @id @default(uuid())
+  imageUrl      String   // Chemin vers l'image de la carte
+  souscripteur  String?
+  numPolice     String?
+  numAssure     String?
+  assure        String?
+  beneficiaire  String?
+  age           Int?
+  sexe          String?
+  rawText       String?  // Texte brut extrait par OCR pour référence
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

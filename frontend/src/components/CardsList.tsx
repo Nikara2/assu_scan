@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { getApiUrl, getImageUrl } from '../config/api';
 
 interface InsuranceCard {
   id: string;
@@ -33,7 +34,7 @@ const CardsList: React.FC<CardsListProps> = ({ refreshTrigger }) => {
         success: boolean;
         data: InsuranceCard[];
         count: number;
-      }>('/api/insurance/cards');
+      }>(getApiUrl('/api/insurance/cards'));
 
       if (response.data.success) {
         setCards(response.data.data);
@@ -155,7 +156,7 @@ const CardsList: React.FC<CardsListProps> = ({ refreshTrigger }) => {
               <tr key={card.id} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap">
                   <img
-                    src={card.imageUrl}
+                    src={getImageUrl(card.imageUrl)}
                     alt="Carte"
                     className="h-12 w-20 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                     onClick={() => handleCardClick(card)}
@@ -238,7 +239,7 @@ const CardsList: React.FC<CardsListProps> = ({ refreshTrigger }) => {
                     Image de la carte:
                   </h4>
                   <img
-                    src={selectedCard.imageUrl}
+                    src={getImageUrl(selectedCard.imageUrl)}
                     alt="Carte d'assurance"
                     className="w-full h-auto rounded-lg border border-gray-300"
                   />

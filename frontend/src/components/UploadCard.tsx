@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import CameraCapture from './CameraCapture';
+import { getApiUrl } from '../config/api';
 
 interface InsuranceCard {
   id: string;
@@ -73,7 +74,7 @@ const UploadCard: React.FC<UploadCardProps> = ({ onCardAdded }) => {
         success: boolean;
         message: string;
         data: InsuranceCard;
-      }>('/api/insurance/upload', formData, {
+      }>(getApiUrl('/api/insurance/upload'), formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

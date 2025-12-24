@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import UploadCard from './components/UploadCard';
 import CardsList from './components/CardsList';
 
@@ -19,7 +19,7 @@ interface InsuranceCard {
 function App() {
   const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-  const handleCardAdded = (card: InsuranceCard) => {
+  const handleCardAdded = (_card: InsuranceCard) => {
     // Rafraîchir la liste des cartes
     setRefreshTrigger((prev) => prev + 1);
   };

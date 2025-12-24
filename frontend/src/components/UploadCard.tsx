@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import CameraCapture from './CameraCapture';
 import { getApiUrl } from '../config/api';

@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["vips", "pkg-config"]
-
-[phases.build]
-cmds = ["npm run build"]
-
-[start]
-cmd = "npm run start:prod"
